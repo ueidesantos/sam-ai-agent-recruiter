@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#123f38">
+    <meta name="description" content="Conheça a descoberta do SAM Recruiter: uma iniciativa para entender e melhorar a rotina de recrutamento e agendamento de entrevistas.">
+    <title>SAM Recruiter — recrutamento com mais clareza</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      :root { color-scheme: light; --ink: #173a34; --muted: #58706a; --green: #17483f; --mint: #e5eee8; --cream: #f8f5ee; --coral: #ef866b; --line: #dbe5dc; }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; background: #fffefa; color: var(--ink); font-family: "DM Sans", sans-serif; line-height: 1.6; }
+      a { color: inherit; }
+      .wrap { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
+      header { height: 82px; display: flex; align-items: center; border-bottom: 1px solid rgba(23,58,52,.08); }
+      .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+      .brand { display: inline-flex; align-items: center; gap: 11px; color: var(--ink); text-decoration: none; font: 800 16px Manrope, sans-serif; letter-spacing: -.04em; }
+      .brand-mark { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 11px; color: white; background: var(--green); font-size: 14px; letter-spacing: -.06em; }
+      .nav-links { display: flex; align-items: center; gap: 30px; font-size: 13px; font-weight: 600; color: #49645d; }
+      .nav-links a { text-decoration: none; }
+      .nav-links a:hover { color: var(--coral); }
+      .nav-cta, .button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; border-radius: 999px; padding: 12px 18px; background: var(--green); color: #fff; text-decoration: none; font-size: 13px; font-weight: 700; transition: transform .2s, background .2s; }
+      .nav-cta:hover, .button:hover { transform: translateY(-2px); background: #236358; }
+      .hero { position: relative; overflow: hidden; padding: 66px 0 74px; background: var(--cream); }
+      .hero:before { content: ""; position: absolute; width: 380px; height: 380px; border-radius: 50%; border: 1px solid rgba(23,72,63,.08); right: -110px; top: -190px; box-shadow: 0 0 0 36px rgba(23,72,63,.025), 0 0 0 72px rgba(23,72,63,.02); }
+      .hero-grid { position: relative; display: grid; grid-template-columns: .95fr 1.05fr; gap: 42px; align-items: center; }
+      .eyebrow { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 18px; padding: 7px 12px; border: 1px solid #d3e0d5; border-radius: 999px; background: rgba(255,255,255,.62); color: #41645b; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+      .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--coral); box-shadow: 0 0 0 4px #f8dfd6; }
+      h1, h2, h3, p { margin-top: 0; }
+      h1, h2, h3 { font-family: Manrope, sans-serif; letter-spacing: -.045em; }
+      h1 { max-width: 610px; margin-bottom: 19px; font-size: clamp(36px, 4.7vw, 59px); line-height: 1.08; font-weight: 700; }
+      h1 span { color: #3d7566; }
+      .hero-copy { max-width: 510px; margin-bottom: 27px; color: var(--muted); font-size: 16px; }
+      .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+      .button-secondary { display: inline-flex; align-items: center; gap: 8px; padding: 12px 15px; color: var(--green); text-decoration: none; font-size: 13px; font-weight: 700; }
+      .button-secondary:hover { color: #a9533d; }
+      .hero-note { display: flex; align-items: center; gap: 9px; margin-top: 25px; color: #75867f; font-size: 11px; }
+      .hero-note svg { flex: 0 0 auto; color: #548173; }
+      .hero-art { position: relative; }
+      .hero-art img { display: block; width: 100%; height: auto; border-radius: 22px; box-shadow: 0 22px 65px rgba(37,63,53,.12); }
+      .art-caption { position: absolute; right: 15px; bottom: 14px; padding: 7px 11px; border: 1px solid rgba(255,255,255,.75); border-radius: 99px; background: rgba(255,254,250,.84); color: #41645b; font-size: 10px; font-weight: 700; backdrop-filter: blur(8px); }
+      .section { padding: 88px 0; }
+      .section-head { max-width: 650px; margin: 0 auto 39px; text-align: center; }
+      .kicker { margin-bottom: 11px; color: #598173; font-size: 11px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+      h2 { margin-bottom: 13px; font-size: clamp(28px, 3.5vw, 40px); line-height: 1.17; }
+      .section-head p { margin-bottom: 0; color: var(--muted); font-size: 15px; }
+      .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 17px; }
+      .card { min-height: 240px; padding: 25px; border: 1px solid var(--line); border-radius: 17px; background: white; box-shadow: 0 8px 25px rgba(28,62,52,.035); }
+      .card-icon { width: 42px; height: 42px; display: grid; place-items: center; margin-bottom: 20px; border-radius: 13px; background: #eaf2eb; color: #286155; }
+      .card:nth-child(2) .card-icon { background: #fff0e8; color: #c36950; }
+      .card:nth-child(3) .card-icon { background: #edf0e6; color: #66764b; }
+      .card h3 { margin-bottom: 9px; font-size: 18px; }
+      .card p { margin-bottom: 0; color: var(--muted); font-size: 13px; }
+      .discovery { background: #f3f6f0; }
+      .discovery-grid { display: grid; grid-template-columns: .78fr 1.22fr; gap: 78px; align-items: start; }
+      .discovery-intro { position: sticky; top: 30px; }
+      .discovery-intro h2 { margin-bottom: 16px; }
+      .discovery-intro p { color: var(--muted); font-size: 14px; }
+      .timeline { display: grid; gap: 0; }
+      .step { position: relative; display: grid; grid-template-columns: 43px 1fr; gap: 18px; padding-bottom: 28px; }
+      .step:not(:last-child):before { content: ""; position: absolute; left: 20px; top: 43px; bottom: 0; width: 1px; background: #c5d6ca; }
+      .step-number { z-index: 1; width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid #bfd3c6; border-radius: 14px; background: #fff; color: #37695a; font: 700 13px Manrope, sans-serif; }
+      .step h3 { margin: 4px 0 6px; font-size: 17px; }
+      .step p { max-width: 530px; margin: 0; color: var(--muted); font-size: 13px; }
+      .truth { padding: 75px 0; background: #163f38; color: #fff; }
+      .truth-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 66px; align-items: center; }
+      .truth h2 { margin-bottom: 15px; }
+      .truth-copy { color: #c4d9cd; font-size: 14px; }
+      .truth-list { display: grid; gap: 12px; }
+      .truth-item { display: grid; grid-template-columns: 23px 1fr; gap: 12px; padding: 15px 17px; border: 1px solid rgba(226,241,230,.17); border-radius: 12px; background: rgba(255,255,255,.055); color: #e6efe8; font-size: 13px; }
+      .truth-item svg { margin-top: 2px; color: #f29a7a; }
+      .truth-item strong { color: #fff; }
+      .resources { padding: 83px 0; }
+      .resource-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+      .resource { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px; border: 1px solid var(--line); border-radius: 14px; background: #fff; text-decoration: none; transition: border-color .2s, transform .2s; }
+      .resource:hover { transform: translateY(-2px); border-color: #8aa99a; }
+      .resource small { display: block; margin-bottom: 3px; color: #73877f; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+      .resource strong { font: 700 13px Manrope, sans-serif; }
+      .resource svg { flex: 0 0 auto; color: #508071; }
+      .closing { padding: 0 0 84px; }
+      .closing-box { display: flex; justify-content: space-between; align-items: center; gap: 30px; padding: 35px 40px; border-radius: 20px; background: #fae8de; }
+      .closing-box h2 { max-width: 590px; margin: 0; font-size: clamp(22px, 3vw, 30px); }
+      .closing-box p { margin: 7px 0 0; color: #745e53; font-size: 13px; }
+      .closing-box .button { flex: 0 0 auto; }
+      footer { padding: 23px 0; border-top: 1px solid var(--line); color: #75867f; font-size: 11px; }
+      .footer-row { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+      .footer-brand { color: var(--ink); font: 800 12px Manrope, sans-serif; }
+      @media (max-width: 850px) { .hero-grid { grid-template-columns: 1fr; gap: 32px; } .hero-text { max-width: 670px; } .hero-art { max-width: 720px; } .discovery-grid, .truth-grid { grid-template-columns: 1fr; gap: 32px; } .discovery-intro { position: static; max-width: 620px; } }
+      @media (max-width: 640px) { .wrap { width: min(100% - 32px, 560px); } header { height: 68px; } .nav-links { display: none; } .nav-cta { padding: 10px 13px; font-size: 11px; } .hero { padding: 49px 0 52px; } h1 { font-size: clamp(35px, 10vw, 48px); } .hero-copy { font-size: 14px; } .hero-art img { border-radius: 15px; } .art-caption { right: 8px; bottom: 8px; font-size: 9px; } .section { padding: 62px 0; } .cards, .resource-row { grid-template-columns: 1fr; } .card { min-height: auto; padding: 21px; } .card-icon { margin-bottom: 14px; } .discovery-grid { gap: 27px; } .truth { padding: 58px 0; } .resources { padding: 62px 0; } .closing { padding-bottom: 61px; } .closing-box { flex-direction: column; align-items: flex-start; padding: 26px; } .footer-row { flex-direction: column; align-items: flex-start; gap: 7px; } }
+      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="wrap nav" aria-label="Navegação principal">
+        <a class="brand" href="#inicio" aria-label="SAM Recruiter, início"><span class="brand-mark">SAM</span><span>recruiter</span></a>
+        <div class="nav-links"><a href="#investigacao">O que estamos entendendo</a><a href="#etapas">Etapas</a><a href="#materiais">Materiais</a></div>
+        <a class="nav-cta" href="https://github.com/ueidesantos/sam-ai-agent-recruiter/blob/main/docs/descoberta/questionario-recruiter.md">Ver questionário <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main id="inicio">
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div class="hero-text">
+            <div class="eyebrow"><span class="dot"></span> Projeto em descoberta</div>
+            <h1>Recrutamento mais leve começa com <span>as perguntas certas.</span></h1>
+            <p class="hero-copy">Estamos entendendo como acontecem os primeiros contatos e o agendamento de entrevistas para encontrar uma melhoria pequena, útil e adequada à rotina da recruiter.</p>
+            <div class="hero-actions"><a class="button" href="#investigacao">Conheça a iniciativa <span aria-hidden="true">↓</span></a><a class="button-secondary" href="https://github.com/ueidesantos/sam-ai-agent-recruiter">Acompanhe no GitHub <span aria-hidden="true">↗</span></a></div>
+            <div class="hero-note"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 4.5 6v5.3c0 4.7 3.2 8.5 7.5 9.7 4.3-1.2 7.5-5 7.5-9.7V6L12 3Z" stroke="currentColor" stroke-width="1.7"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg> Nenhuma solução, integração ou uso de IA foi escolhido.</div>
+          </div>
+          <div class="hero-art"><img src="assets/recruitment-discovery-hero-v2.png" alt="Recrutadora e candidato conectados por mensagens e um calendário de entrevista"><span class="art-caption">Pessoas no centro do processo</span></div>
+        </div>
+      </section>
+
+      <section class="section" id="investigacao">
+        <div class="wrap">
+          <div class="section-head"><div class="kicker">Um problema real, primeiro</div><h2>O que estamos tentando entender</h2><p>Antes de desenhar qualquer ferramenta, queremos enxergar a rotina como ela acontece — incluindo o que funciona e o que toma tempo.</p></div>
+          <div class="cards">
+            <article class="card"><div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H6l-3 2v-6A7.5 7.5 0 1 1 20 11.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M8 10h8M8 13.5h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div><h3>Primeiro contato</h3><p>Como chegam as pessoas interessadas, quais dúvidas aparecem e que papel o WhatsApp tem no atendimento.</p></article>
+            <article class="card"><div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="5" width="17" height="16" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M7.5 3v4M16.5 3v4M4 9.5h16M8 13h3M8 16.5h2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></div><h3>Convite e agenda</h3><p>Como os convites são enviados, como os horários são combinados e onde surgem conflitos ou retrabalho.</p></article>
+            <article class="card"><div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 18.5V5.5M4 18.5h16M7 15l3.5-4 3 2.5L19 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="7" r="1.5" fill="currentColor"/></svg></div><h3>Primeira melhoria</h3><p>Qual é o menor passo que pouparia esforço e como saberíamos que ele realmente ajudou.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section discovery" id="etapas">
+        <div class="wrap discovery-grid">
+          <div class="discovery-intro"><div class="kicker">Da escuta à decisão</div><h2>Sem pular etapas.</h2><p>A iniciativa está na fase de descoberta. As respostas da recruiter vão orientar a próxima decisão; a ideia é validar o problema antes de escolher como resolvê-lo.</p></div>
+          <div class="timeline">
+            <article class="step"><div class="step-number">01</div><div><h3>Ouvir quem faz o trabalho</h3><p>Reunir exemplos do processo, do volume e das dificuldades diretamente com a recruiter.</p></div></article>
+            <article class="step"><div class="step-number">02</div><div><h3>Mapear opções e limites</h3><p>Comparar possibilidades como um link de agendamento ou um fluxo de conversa, considerando controles e ferramentas existentes.</p></div></article>
+            <article class="step"><div class="step-number">03</div><div><h3>Definir uma primeira entrega útil</h3><p>Alinhar prioridade, escopo e critérios de sucesso antes de iniciar qualquer implementação.</p></div></article>
+            <article class="step"><div class="step-number">04</div><div><h3>Revisar a proposta</h3><p>Apresentar um brief com decisões, alternativas, exclusões e pontos que ainda precisam de confirmação.</p></div></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="truth">
+        <div class="wrap truth-grid">
+          <div><div class="kicker" style="color:#a9c9b7">Transparência do projeto</div><h2>O que já sabemos — e o que falta decidir.</h2><p class="truth-copy">O contexto inicial aponta para recrutamento em operações de fast food. Parte das ideias veio de um relato ainda não validado com a recruiter.</p></div>
+          <div class="truth-list">
+            <div class="truth-item"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.7"/><path d="M12 7.5v5l3 1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><div><strong>Estado atual:</strong> descoberta em andamento; ainda não há escopo aprovado nem implementação.</div></div>
+            <div class="truth-item"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 6.5h16M4 12h10M4 17.5h13" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="18" cy="12" r="2" stroke="currentColor" stroke-width="1.7"/></svg><div><strong>Em aberto:</strong> priorizar atendimento inicial, agendamento ou uma combinação dos dois.</div></div>
+            <div class="truth-item"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 4.5 6v5.3c0 4.7 3.2 8.5 7.5 9.7 4.3-1.2 7.5-5 7.5-9.7V6L12 3Z" stroke="currentColor" stroke-width="1.7"/><path d="M12 8v4m0 3h.01" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg><div><strong>Sem premissas:</strong> IA, automações, WhatsApp Business e Google Agenda ainda não foram definidos como solução.</div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="resources" id="materiais">
+        <div class="wrap">
+          <div class="section-head"><div class="kicker">A descoberta é colaborativa</div><h2>Materiais do projeto</h2><p>Veja as perguntas, o contexto e o histórico que estão guiando esta etapa.</p></div>
+          <div class="resource-row">
+            <a class="resource" href="https://github.com/ueidesantos/sam-ai-agent-recruiter/blob/main/docs/descoberta/questionario-recruiter.md"><span><small>Participar</small><strong>Questionário da recruiter</strong></span><svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="resource" href="https://github.com/ueidesantos/sam-ai-agent-recruiter/blob/main/docs/descoberta/registro.md"><span><small>Contexto</small><strong>Registro de descoberta</strong></span><svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="resource" href="https://github.com/ueidesantos/sam-ai-agent-recruiter/blob/main/docs/descoberta/evolucao.md"><span><small>Acompanhar</small><strong>Histórico da iniciativa</strong></span><svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing">
+        <div class="wrap"><div class="closing-box"><div><h2>A melhor solução começa entendendo a rotina.</h2><p>Primeiro, ouvir. Depois, definir juntos o próximo passo.</p></div><a class="button" href="https://github.com/ueidesantos/sam-ai-agent-recruiter/blob/main/docs/descoberta/guia-recruiter.md">Ver guia da recruiter <span aria-hidden="true">↗</span></a></div></div>
+      </section>
+    </main>
+
+    <footer><div class="wrap footer-row"><span class="footer-brand">SAM recruiter</span><span>Uma iniciativa em descoberta · Construída com transparência e foco nas pessoas.</span></div></footer>
+  </body>
+</html>

@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#17483f">
+    <meta name="description" content="Questionário guiado para responder no seu ritmo. O rascunho fica salvo somente neste aparelho.">
+    <title>Questionário guiado — SAM Recruiter</title>
+    <link rel="canonical" href="https://ueidesantos.github.io/sam-ai-agent-recruiter/questionario.html">
+    <style>
+      :root { color-scheme: light; --ink:#173a34; --muted:#58706a; --green:#17483f; --mint:#e5eee8; --cream:#f8f5ee; --coral:#ef866b; --line:#dbe5dc; --white:#fffefa; }
+      * { box-sizing:border-box; }
+      body { margin:0; background:var(--cream); color:var(--ink); font:16px/1.6 "Segoe UI", Arial, sans-serif; }
+      button, textarea { font:inherit; }
+      button { cursor:pointer; }
+      a { color:inherit; }
+      .topbar { background:var(--white); border-bottom:1px solid var(--line); }
+      .topbar-inner, main, footer { width:min(820px, calc(100% - 36px)); margin:auto; }
+      .topbar-inner { height:68px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+      .brand { display:flex; align-items:center; gap:10px; color:var(--ink); font-weight:750; text-decoration:none; letter-spacing:-.03em; }
+      .brand-mark { display:grid; place-items:center; width:34px; height:34px; border-radius:11px; color:white; background:var(--green); font-size:12px; }
+      .back { color:var(--muted); font-size:14px; text-decoration:none; }
+      .back:hover { color:var(--green); text-decoration:underline; }
+      main { padding:38px 0 56px; }
+      .eyebrow { display:inline-flex; align-items:center; gap:8px; padding:6px 11px; border:1px solid #d3e0d5; border-radius:999px; background:#fff; color:#41645b; font-size:11px; font-weight:750; letter-spacing:.08em; text-transform:uppercase; }
+      .eyebrow i { width:7px; height:7px; border-radius:50%; background:var(--coral); }
+      h1,h2,h3 { font-family:"Segoe UI", Arial, sans-serif; letter-spacing:-.04em; line-height:1.18; }
+      h1 { margin:16px 0 10px; font-size:clamp(32px, 7vw, 48px); }
+      .lead { max-width:680px; margin:0 0 20px; color:var(--muted); font-size:17px; }
+      .privacy { display:flex; gap:12px; align-items:flex-start; margin:0 0 30px; padding:14px 16px; border:1px solid #d7e6da; border-radius:13px; background:#edf4ee; color:#365b4f; font-size:13px; }
+      .privacy svg { flex:none; margin-top:1px; }
+      .progress-card { margin:0 0 14px; padding:17px 20px; border:1px solid var(--line); border-radius:16px; background:#fff; }
+      .progress-row { display:flex; justify-content:space-between; gap:12px; margin-bottom:10px; color:var(--muted); font-size:13px; }
+      .progress-row strong { color:var(--ink); }
+      .track { height:8px; overflow:hidden; border-radius:999px; background:#edf1eb; }
+      .bar { width:0; height:100%; border-radius:inherit; background:var(--green); transition:width .2s ease; }
+      .block-nav { display:flex; gap:8px; margin:0 0 16px; overflow-x:auto; padding:2px 1px 8px; scrollbar-width:thin; }
+      .block-tab { flex:0 0 auto; padding:9px 13px; border:1px solid var(--line); border-radius:999px; background:#fff; color:#4b665d; font-size:12px; font-weight:700; }
+      .block-tab[aria-current="step"] { border-color:var(--green); background:var(--green); color:#fff; }
+      .question-card, .review-card { padding:clamp(22px, 5vw, 34px); border:1px solid var(--line); border-radius:20px; background:#fff; box-shadow:0 12px 34px rgba(28,62,52,.055); }
+      .q-meta { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; color:#668075; font-size:12px; font-weight:750; letter-spacing:.08em; text-transform:uppercase; }
+      .q-id { display:grid; place-items:center; min-width:46px; height:38px; padding:0 10px; border-radius:12px; background:var(--mint); color:var(--green); font-size:15px; letter-spacing:0; }
+      h2 { margin:0 0 22px; font-size:clamp(22px, 5vw, 30px); }
+      label[for="answer"] { display:block; margin-bottom:8px; font-size:14px; font-weight:700; }
+      .hint { margin:0 0 10px; color:var(--muted); font-size:13px; }
+      textarea { display:block; width:100%; min-height:190px; resize:vertical; padding:15px 16px; border:1px solid #cbd9cf; border-radius:13px; outline:none; background:#fffefa; color:var(--ink); line-height:1.55; }
+      textarea:focus { border-color:#4d8372; box-shadow:0 0 0 3px rgba(77,131,114,.16); }
+      textarea::placeholder { color:#87968f; }
+      .answer-tools { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-top:12px; }
+      .quiet-button { padding:8px 12px; border:1px solid #d5e1d8; border-radius:999px; background:#f7faf6; color:#46695c; font-size:12px; font-weight:650; }
+      .quiet-button:hover { border-color:#82a393; background:#edf4ee; }
+      .estimate { display:flex; align-items:center; gap:8px; margin-left:auto; color:#536e63; font-size:13px; }
+      .estimate input { width:17px; height:17px; accent-color:var(--green); }
+      .save-note { min-height:20px; margin:11px 0 0; color:#72847c; font-size:12px; }
+      .controls { display:flex; justify-content:space-between; gap:12px; margin-top:24px; }
+      .btn { display:inline-flex; justify-content:center; align-items:center; gap:8px; min-height:46px; padding:11px 18px; border:1px solid transparent; border-radius:999px; background:var(--green); color:#fff; font-size:14px; font-weight:750; text-decoration:none; }
+      .btn:hover { background:#236358; }
+      .btn:focus-visible, .quiet-button:focus-visible, .block-tab:focus-visible { outline:3px solid #f2a185; outline-offset:3px; }
+      .btn.secondary { border-color:#cfddd2; background:#fff; color:#325b4e; }
+      .btn.secondary:hover { background:#f1f6f0; }
+      .btn:disabled { cursor:not-allowed; opacity:.45; }
+      .review-head { margin-bottom:19px; }
+      .review-head p { color:var(--muted); }
+      .answer-list { display:grid; gap:10px; }
+      .answer-item { padding:15px; border:1px solid var(--line); border-radius:13px; background:#fffefa; }
+      .answer-item-top { display:flex; justify-content:space-between; gap:10px; margin-bottom:6px; }
+      .answer-item strong { font-size:13px; }
+      .answer-item p { margin:0; color:#526d62; font-size:14px; white-space:pre-wrap; overflow-wrap:anywhere; }
+      .edit-link { border:0; background:none; color:#39715f; font-size:12px; font-weight:750; text-decoration:underline; }
+      .review-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
+      .review-tip { margin:14px 0 0; color:var(--muted); font-size:13px; }
+      .hidden { display:none !important; }
+      footer { padding:0 0 34px; color:#75867f; font-size:12px; }
+      @media (max-width:560px) { .topbar-inner, main, footer { width:calc(100% - 28px); } main { padding-top:25px; } .topbar-inner { height:60px; } .back { font-size:12px; } .progress-card { padding:14px; } .question-card,.review-card { border-radius:16px; } .estimate { width:100%; margin-left:0; } .controls .btn { flex:1; padding-inline:12px; } textarea { min-height:170px; } }
+      @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto !important; transition:none !important; } }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="./index.html"><span class="brand-mark">SAM</span><span>SAM recruiter</span></a>
+        <a class="back" href="./index.html">Voltar ao projeto</a>
+      </div>
+    </header>
+    <main>
+      <div class="eyebrow"><i></i> Descoberta, sem compromisso</div>
+      <h1>Vamos por partes.</h1>
+      <p class="lead">São 15 perguntas em blocos curtos. Você pode responder uma por vez, parar quando quiser e continuar depois neste mesmo aparelho. Se preferir, continue respondendo por áudio no WhatsApp, um bloco de cada vez.</p>
+      <div class="privacy">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3 4.5 6v5.3c0 4.7 3.2 8.5 7.5 9.7 4.3-1.2 7.5-5 7.5-9.7V6L12 3Z" stroke="currentColor" stroke-width="1.7"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div><strong>Seu rascunho fica neste aparelho.</strong> Nada é enviado ou compartilhado automaticamente. Não inclua nomes, telefones ou dados pessoais de candidatos. Ao terminar, você escolhe se quer copiar as respostas e enviar pelo WhatsApp.</div>
+      </div>
+
+      <section class="progress-card" aria-label="Progresso do questionário">
+        <div class="progress-row"><strong id="block-label">Bloco 1 de 5</strong><span id="progress-label">0 de 15 respondidas</span></div>
+        <div class="track" role="progressbar" id="progress" aria-label="Perguntas respondidas" aria-valuemin="0" aria-valuemax="15" aria-valuenow="0"><div class="bar" id="progress-bar"></div></div>
+      </section>
+      <nav class="block-nav" id="block-nav" aria-label="Blocos do questionário"></nav>
+
+      <section class="question-card" id="question-view" aria-live="polite">
+        <div class="q-meta"><span id="q-block">Bloco 1 — Sua rotina e as dificuldades</span><span class="q-id" id="q-id">R1</span></div>
+        <h2 id="q-text"></h2>
+        <label for="answer">Sua resposta</label>
+        <p class="hint">Escreva ou use o microfone do teclado do celular para ditar. Um exemplo real ou uma estimativa já ajuda.</p>
+        <textarea id="answer" placeholder="Pode responder com suas palavras. Se não souber, tudo bem dizer “a confirmar”." autocomplete="off"></textarea>
+        <div class="answer-tools">
+          <button class="quiet-button" id="unknown" type="button">Marcar “a confirmar”</button>
+          <button class="quiet-button" id="not-applicable" type="button">Não se aplica</button>
+          <label class="estimate"><input id="estimate" type="checkbox"> Esta resposta é uma estimativa</label>
+        </div>
+        <p class="save-note" id="save-note" role="status">Rascunho salvo automaticamente neste aparelho.</p>
+        <div class="controls">
+          <button class="btn secondary" id="previous" type="button">← Anterior</button>
+          <button class="btn" id="next" type="button">Próxima pergunta →</button>
+        </div>
+      </section>
+
+      <section class="review-card hidden" id="review-view" aria-live="polite">
+        <div class="review-head"><div class="eyebrow"><i></i> Só você decide o que compartilhar</div><h2>Revise suas respostas</h2><p>Você pode voltar a qualquer pergunta para completar ou corrigir. As respostas ainda estão apenas neste aparelho.</p></div>
+        <div class="answer-list" id="answer-list"></div>
+        <div class="review-actions">
+          <button class="btn" id="copy-answers" type="button">Copiar respostas</button>
+          <button class="btn secondary" id="download-answers" type="button">Salvar como arquivo .txt</button>
+          <button class="btn secondary" id="continue-editing" type="button">Voltar ao questionário</button>
+        </div>
+        <p class="review-tip" id="copy-status" role="status"></p>
+      </section>
+    </main>
+    <footer>Projeto em descoberta. As respostas vão orientar uma proposta para revisão; nenhuma solução foi escolhida.</footer>
+
+    <script>
+      const blocks = [
+        { title: 'Sua rotina e as dificuldades', questions: [
+          ['R1', 'Conte um agendamento recente, do momento em que decidiu convidar a pessoa até a confirmação da entrevista. O que você fez e quais ferramentas usou em cada etapa?'],
+          ['R2', 'Quantas entrevistas você costuma agendar em uma semana normal e em uma semana de pico? Quanto tempo estima gastar com mensagens e organização desses agendamentos?'],
+          ['R3', 'Qual parte desse trabalho mais atrapalha sua rotina? Conte uma situação concreta e diga qual dificuldade você resolveria primeiro.']
+        ]},
+        { title: 'WhatsApp, candidatos e convites', questions: [
+          ['R4', 'De onde vêm os candidatos e seus contatos, e como você decide quem já pode receber um convite? Onde essa decisão fica registrada, se houver um registro?'],
+          ['R5', 'Você usa WhatsApp comum, o aplicativo WhatsApp Business ou alguma plataforma de atendimento? O número é pessoal ou da empresa, e mais alguém atende por ele? Se não souber o tipo, basta descrever como usa.'],
+          ['R6', 'Quem inicia a conversa com o candidato e como o primeiro convite é aprovado e enviado hoje? A pessoa já espera esse contato? Se puder, descreva uma mensagem típica sem dados pessoais.']
+        ]},
+        { title: 'Agenda e regras de horários', questions: [
+          ['R7', 'Você usa Google Agenda? A conta é pessoal ou da empresa, quais agendas precisam ser consultadas e de quem depende a disponibilidade para confirmar uma entrevista?'],
+          ['R8', 'Quais regras precisam valer para os horários oferecidos: dias e turnos, duração da entrevista, intervalo entre entrevistas, antecedência, limite diário e fuso horário? Diga também se variam por vaga ou etapa.'],
+          ['R9', 'Como você garante hoje que um horário está livre e continua livre até a confirmação? Os compromissos que devem bloquear entrevistas estão registrados nas agendas ou há bloqueios combinados por fora?']
+        ]},
+        { title: 'Exceções e intervenção humana', questions: [
+          ['R10', 'Como você lida hoje com falta de resposta, lembretes, remarcação, cancelamento e ausência na entrevista? Quais desses casos acontecem com mais frequência?'],
+          ['R11', 'Que dúvidas os candidatos costumam trazer durante o agendamento, além da escolha do horário? Quais respostas seguem um padrão e quais dependem da sua avaliação?'],
+          ['R12', 'Se parte do agendamento fosse automatizada, o que poderia acontecer sem sua aprovação a cada etapa e o que precisaria passar por você? Em que situações você gostaria de assumir a conversa?']
+        ]},
+        { title: 'Alternativas e primeira melhoria', questions: [
+          ['R13', 'Você já tentou algum link de agendamento, modelo de mensagem ou outra ferramenta para facilitar esse trabalho? O que funcionou ou não funcionou, se houve alguma tentativa?'],
+          ['R14', 'Pensando nos seus candidatos, como você avalia estas duas opções: receber pelo WhatsApp um link para escolher entre horários disponíveis, ou escolher o horário em uma conversa automatizada no próprio WhatsApp? Qual faria mais sentido, se alguma, e que dificuldade você prevê em cada uma?'],
+          ['R15', 'Qual seria a menor mudança que já ajudaria sua rotina, e como você perceberia que ela deu certo? Se puder, indique um resultado observável e um tipo de entrevista pelo qual faria sentido começar.']
+        ]}
+      ];
+      const allQuestions = blocks.flatMap((block, blockIndex) => block.questions.map(([id, text]) => ({ id, text, block: block.title, blockIndex })));
+      const storageKey = 'sam-recruiter-questionario-v1';
+      let state = { answers: {}, estimates: {} };
+      let current = 0;
+      try { state = { ...state, ...JSON.parse(localStorage.getItem(storageKey) || '{}') }; } catch (_) {}
+      const $ = id => document.getElementById(id);
+      const answerInput = $('answer');
+      const blockNav = $('block-nav');
+
+      function save() {
+        try { localStorage.setItem(storageKey, JSON.stringify(state)); $('save-note').textContent = 'Rascunho salvo automaticamente neste aparelho.'; }
+        catch (_) { $('save-note').textContent = 'Não foi possível salvar neste navegador. Copie suas respostas antes de fechar.'; }
+        updateProgress();
+      }
+      function answeredCount() { return allQuestions.filter(q => (state.answers[q.id] || '').trim()).length; }
+      function updateProgress() {
+        const count = answeredCount();
+        const pct = Math.round(count / allQuestions.length * 100);
+        $('progress-label').textContent = `${count} de ${allQuestions.length} respondidas`;
+        $('progress-bar').style.width = `${pct}%`;
+        $('progress').setAttribute('aria-valuenow', count);
+      }
+      function renderTabs() {
+        blockNav.replaceChildren();
+        blocks.forEach((block, index) => {
+          const button = document.createElement('button');
+          button.type = 'button'; button.className = 'block-tab';
+          button.textContent = `Bloco ${index + 1}`;
+          button.setAttribute('aria-current', allQuestions[current].blockIndex === index ? 'step' : 'false');
+          button.addEventListener('click', () => { current = index * 3; renderQuestion(); });
+          blockNav.append(button);
+        });
+      }
+      function renderQuestion() {
+        const q = allQuestions[current];
+        $('question-view').classList.remove('hidden'); $('review-view').classList.add('hidden');
+        $('block-label').textContent = `Bloco ${q.blockIndex + 1} de ${blocks.length}`;
+        $('q-block').textContent = `Bloco ${q.blockIndex + 1} — ${q.block}`;
+        $('q-id').textContent = q.id;
+        $('q-text').textContent = q.text;
+        answerInput.value = state.answers[q.id] || '';
+        $('estimate').checked = Boolean(state.estimates[q.id]);
+        $('previous').disabled = current === 0;
+        $('next').textContent = current === allQuestions.length - 1 ? 'Revisar respostas →' : 'Próxima pergunta →';
+        renderTabs(); updateProgress();
+      }
+      function goTo(index) { current = Math.max(0, Math.min(allQuestions.length - 1, index)); renderQuestion(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+      answerInput.addEventListener('input', () => { state.answers[allQuestions[current].id] = answerInput.value; save(); });
+      $('estimate').addEventListener('change', event => { state.estimates[allQuestions[current].id] = event.target.checked; save(); });
+      $('unknown').addEventListener('click', () => { answerInput.value = 'A confirmar'; answerInput.dispatchEvent(new Event('input')); });
+      $('not-applicable').addEventListener('click', () => { answerInput.value = 'Não se aplica'; answerInput.dispatchEvent(new Event('input')); });
+      $('previous').addEventListener('click', () => goTo(current - 1));
+      $('next').addEventListener('click', () => current === allQuestions.length - 1 ? showReview() : goTo(current + 1));
+
+      function showReview() {
+        $('question-view').classList.add('hidden'); $('review-view').classList.remove('hidden');
+        $('block-label').textContent = 'Revisão';
+        $('progress-bar').style.width = '100%';
+        $('progress-label').textContent = `${answeredCount()} de ${allQuestions.length} respondidas`;
+        $('progress').setAttribute('aria-valuenow', answeredCount());
+        blockNav.classList.add('hidden');
+        const list = $('answer-list'); list.replaceChildren();
+        blocks.forEach((block, bi) => {
+          block.questions.forEach(([id], qi) => {
+            const q = allQuestions.find(item => item.id === id);
+            const item = document.createElement('article'); item.className = 'answer-item';
+            const top = document.createElement('div'); top.className = 'answer-item-top';
+            const label = document.createElement('strong'); label.textContent = `${id} · ${block.title}${state.estimates[id] ? ' · estimativa' : ''}`;
+            const edit = document.createElement('button'); edit.type = 'button'; edit.className = 'edit-link'; edit.textContent = 'Editar';
+            edit.addEventListener('click', () => { blockNav.classList.remove('hidden'); goTo(bi * 3 + qi); });
+            const response = document.createElement('p'); response.textContent = (state.answers[id] || '').trim() || 'Sem resposta';
+            top.append(label, edit); item.append(top, response); list.append(item);
+          });
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      $('copy-answers').addEventListener('click', async () => {
+        const text = ['Questionário — respostas da recruiter', '', ...blocks.flatMap(block => [block.title, ...block.questions.map(([id]) => `${id}${state.estimates[id] ? ' (estimativa)' : ''}: ${(state.answers[id] || '').trim() || 'Sem resposta'}`), ''])].join('\n');
+        try { await navigator.clipboard.writeText(text); $('copy-status').textContent = 'Respostas copiadas. Agora você pode colar a mensagem no WhatsApp.'; }
+        catch (_) { const temp = document.createElement('textarea'); temp.value = text; document.body.append(temp); temp.select(); document.execCommand('copy'); temp.remove(); $('copy-status').textContent = 'Respostas copiadas. Agora você pode colar a mensagem no WhatsApp.'; }
+      });
+      $('download-answers').addEventListener('click', () => {
+        const text = ['Questionário — respostas da recruiter', '', ...blocks.flatMap(block => [block.title, ...block.questions.map(([id]) => `${id}${state.estimates[id] ? ' (estimativa)' : ''}: ${(state.answers[id] || '').trim() || 'Sem resposta'}`), ''])].join('\n');
+        const link = document.createElement('a'); link.href = URL.createObjectURL(new Blob([text], { type: 'text/plain;charset=utf-8' })); link.download = 'respostas-questionario-recruiter.txt'; link.click(); URL.revokeObjectURL(link.href);
+      });
+      $('continue-editing').addEventListener('click', () => { blockNav.classList.remove('hidden'); renderQuestion(); });
+      renderQuestion();
+    </script>
+  </body>
+</html>

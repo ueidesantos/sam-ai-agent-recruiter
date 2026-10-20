@@ -8,6 +8,8 @@ Documentação da descoberta de uma iniciativa para apoiar a rotina de recrutame
 
 **Estado: descoberta em andamento.** Ainda não há brief aprovado, escopo da primeira entrega definido, arquitetura escolhida ou implementação. O nome do repositório não determina necessidade de IA.
 
+**Hotsite:** [Acesse a página do projeto](https://ueidesantos.github.io/sam-ai-agent-recruiter/).
+
 ## Situação atual
 
 | Tema | O que sabemos | Origem |

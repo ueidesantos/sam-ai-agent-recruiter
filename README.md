@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/recruitment-discovery-hero.png" alt="Ilustração de recrutadora e candidato conversando por mensagens e organizando uma entrevista" width="100%">
+</p>
+
 # SAM AI Agent Recruiter
 
 Documentação da descoberta de uma iniciativa para apoiar a rotina de recrutamento pelo WhatsApp. O objetivo desta etapa é entender o trabalho da recruiter e alinhar a menor primeira entrega útil.

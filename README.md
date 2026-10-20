@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/recruitment-discovery-hero-v2.png" alt="Ilustração de recrutadora e candidato conversando por mensagens e organizando uma entrevista" width="100%">
+  <img src="assets/recruitment-discovery-hero-v3.png" alt="Ilustração de recrutadora e candidato conversando por mensagens e organizando uma entrevista" width="100%">
 </p>
 
 # SAM AI Agent Recruiter

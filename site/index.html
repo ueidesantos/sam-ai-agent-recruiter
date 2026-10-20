@@ -117,6 +117,10 @@
       footer { padding: 23px 0; border-top: 1px solid var(--line); color: #75867f; font-size: 11px; }
       .footer-row { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
       .footer-brand { color: var(--ink); font: 800 12px Manrope, sans-serif; }
+      .author-credit { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 20px; margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 12px; }
+      .author-credit a { color: var(--green); font-weight: 600; text-decoration: underline; text-decoration-color: #c5d6ca; text-underline-offset: 4px; }
+      .author-credit a:hover { text-decoration-color: currentColor; }
+      .author-credit a:focus-visible { outline: 2px solid var(--coral); outline-offset: 5px; border-radius: 3px; }
       @media (max-width: 850px) { .hero-grid { grid-template-columns: 1fr; gap: 32px; } .hero-text { max-width: 670px; } .hero-art { max-width: 720px; } .discovery-grid, .truth-grid { grid-template-columns: 1fr; gap: 32px; } .discovery-intro { position: static; max-width: 620px; } }
       @media (max-width: 640px) { .wrap { width: min(100% - 32px, 560px); } header { height: 68px; } .nav-links { display: none; } .nav-cta { padding: 10px 13px; font-size: 11px; } .hero { padding: 49px 0 52px; } h1 { font-size: clamp(35px, 10vw, 48px); } .hero-copy { font-size: 14px; } .hero-art img { border-radius: 15px; } .art-caption { right: 8px; bottom: 8px; font-size: 9px; } .section { padding: 62px 0; } .cards, .resource-row { grid-template-columns: 1fr; } .card { min-height: auto; padding: 21px; } .card-icon { margin-bottom: 14px; } .discovery-grid { gap: 27px; } .truth { padding: 58px 0; } .resources { padding: 62px 0; } .closing { padding-bottom: 61px; } .closing-box { flex-direction: column; align-items: flex-start; padding: 26px; } .footer-row { flex-direction: column; align-items: flex-start; gap: 7px; } }
       @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
@@ -219,6 +223,9 @@
       </section>
     </main>
 
-    <footer><div class="wrap footer-row"><span class="footer-brand">SAM recruiter</span><span>Uma iniciativa em descoberta · Construída com transparência e foco nas pessoas.</span></div></footer>
+    <footer>
+      <div class="wrap footer-row"><span class="footer-brand">SAM recruiter</span><span>Uma iniciativa em descoberta · Construída com transparência e foco nas pessoas.</span></div>
+      <div class="wrap author-credit"><span>Engenharia de software e IA aplicada.</span><a href="https://ueidesantos.github.io/ueide-santos-cv-web/" target="_blank" rel="noopener noreferrer">Conheça Ueide Santos <span aria-hidden="true">↗</span></a></div>
+    </footer>
   </body>
 </html>

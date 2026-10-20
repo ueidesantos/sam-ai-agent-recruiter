@@ -83,6 +83,17 @@
       .step-number { z-index: 1; width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid #bfd3c6; border-radius: 14px; background: #fff; color: #37695a; font: 700 13px Manrope, sans-serif; }
       .step h3 { margin: 4px 0 6px; font-size: 17px; }
       .step p { max-width: 530px; margin: 0; color: var(--muted); font-size: 13px; }
+      .workflow { background: var(--cream); }
+      .workflow figure { margin: 0; }
+      .workflow-image { display: block; overflow: hidden; border: 1px solid var(--line); border-radius: 20px; background: var(--cream); }
+      .workflow-image:focus-visible { outline: 3px solid var(--coral); outline-offset: 5px; }
+      .workflow-image img { display: block; width: 100%; height: auto; }
+      .workflow figcaption { margin-top: 15px; color: var(--muted); font-size: 13px; text-align: center; }
+      .workflow figcaption a { font-weight: 700; text-underline-offset: 3px; }
+      .workflow details { margin-top: 20px; padding: 17px 20px; border: 1px solid var(--line); border-radius: 14px; background: #fffefa; color: var(--muted); font-size: 14px; }
+      .workflow summary { cursor: pointer; color: var(--ink); font-weight: 700; }
+      .workflow ol { padding-left: 23px; margin-bottom: 0; }
+      .workflow li + li { margin-top: 8px; }
       .truth { padding: 75px 0; background: #163f38; color: #fff; }
       .truth-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 66px; align-items: center; }
       .truth h2 { margin-bottom: 15px; }
@@ -154,6 +165,30 @@
             <article class="step"><div class="step-number">03</div><div><h3>Definir uma primeira entrega útil</h3><p>Alinhar prioridade, escopo e critérios de sucesso antes de iniciar qualquer implementação.</p></div></article>
             <article class="step"><div class="step-number">04</div><div><h3>Revisar a proposta</h3><p>Apresentar um brief com decisões, alternativas, exclusões e pontos que ainda precisam de confirmação.</p></div></article>
           </div>
+        </div>
+      </section>
+
+      <section class="section workflow" id="fluxo" aria-labelledby="fluxo-titulo">
+        <div class="wrap">
+          <div class="section-head"><div class="kicker">Como vamos trabalhar juntos</div><h2 id="fluxo-titulo">Do contexto à entrega útil.</h2><p>Samuel contribui com a visão de TI e infraestrutura; a Recruiter de Gerentes traz a rotina e as prioridades. Este é o caminho proposto para construir uma primeira melhoria depois de validar o escopo.</p></div>
+          <figure>
+            <a class="workflow-image" href="assets/fluxograma-processo-sam-recruiter-v2.png" target="_blank" rel="noopener" aria-label="Abrir fluxograma do processo em tamanho original, em uma nova aba">
+              <img src="assets/fluxograma-processo-sam-recruiter-v2.png" width="1920" height="1460" loading="lazy" decoding="async" alt="Fluxograma proposto: Samuel e Recruiter alinham a dor; Traycer documenta com apoio do Discord; Figma prototipa; Claude Code codifica; Codex revisa adversarialmente; GitHub versiona e publica com Actions. Possível experiência do candidato, ainda a validar: candidato, WhatsApp, Recruiter e entrevista.">
+            </a>
+            <figcaption>Proposta de fluxo a validar. <a href="assets/fluxograma-processo-sam-recruiter-v2.png" target="_blank" rel="noopener">Abrir imagem em tamanho original <span aria-hidden="true">↗</span></a></figcaption>
+          </figure>
+          <details>
+            <summary>Ler as etapas do fluxograma</summary>
+            <ol>
+              <li><strong>Alinhar a dor:</strong> a Recruiter apresenta a rotina e as prioridades; Samuel mapeia o contexto e os limites de infraestrutura.</li>
+              <li><strong>Documentar e alinhar:</strong> Traycer organiza o processo e os requisitos; Discord concentra conversas e decisões.</li>
+              <li><strong>Prototipar:</strong> Figma representa a experiência para validar o fluxo antes da implementação.</li>
+              <li><strong>Codificar:</strong> Claude Code constrói a primeira versão a partir do escopo aprovado.</li>
+              <li><strong>Revisar adversarialmente:</strong> Codex questiona pressupostos e procura falhas, exceções e riscos.</li>
+              <li><strong>Versionar e publicar:</strong> GitHub registra mudanças e automatiza a publicação da demo com Actions.</li>
+            </ol>
+            <p>O possível fluxo candidato → WhatsApp → Recruiter → entrevista ainda precisa ser validado com a Recruiter.</p>
+          </details>
         </div>
       </section>
 
